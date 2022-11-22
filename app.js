@@ -2,8 +2,11 @@ const { urlencoded } = require('express');
 /* const dotenv = require('dotenv'); */
 /* dotenv.config(); */
 var express = require('express');
+
 var CommonFunction = require("./CFunction/commonfunction");
 var app = express();
+var cors = require('cors');
+app.use(cors())
 const axios = require('axios');
 var Constant = require("./Constant/constant");
 var path = require('path');

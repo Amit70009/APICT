@@ -31,8 +31,10 @@ async function userLogin(data){
             message: "Login successfully",
             data: {
                 userId: matchUser._id,
-                name: matchUser.name,
+                first_name: matchUser.first_name,
+                last_name: matchUser.last_name,
                 email: matchUser.email,
+                role: matchUser.role,
                 acc_token: genToken
             }
         }

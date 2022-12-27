@@ -7,6 +7,7 @@ var userSchema = new mongoose.Schema({
     emp_id: {type: String, required: true},
     mobile: { type: Number, MaxKey: 10, require: true},
     password: { type: String, require: true },
+    role: {type:String, default:"student"},
     acc_token: {type: String},
     isUserActive: { type: Boolean },
     createdOn: {type: Date, default: new Date()}

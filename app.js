@@ -1,7 +1,9 @@
+var express = require('express');
 const { urlencoded } = require('express');
 /* const dotenv = require('dotenv'); */
 /* dotenv.config(); */
-var express = require('express');
+
+
 
 var CommonFunction = require("./CFunction/commonfunction");
 var app = express();

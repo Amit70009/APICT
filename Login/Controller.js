@@ -49,4 +49,46 @@ async function userLogin(data){
     throw error
 }
 }
-module.exports = { userLogin }
+
+async function fetchProfile(data){
+try {
+    var matchUser = await UserSchema.findOne({
+    email: data.email });
+    if(matchUser){
+        return{
+            status: 200,
+            message: "fetch Successfully",
+            data: {matchUser}
+        }
+    }
+} catch (error) {
+    console.log(error);
+}
+}
+
+async function UpdateProfile(data){
+    try {
+        var UpdateProf = await UserSchema.updateOne({
+            email: data.email
+        }, {
+            $set: {
+                first_name: data.first_name,
+                last_name: data.last_name,
+                profile_pic: data.profile_pic,
+                gender: data.gender,
+                course: data.course
+
+            }
+        })
+console.log(UpdateProf);
+        if(UpdateProf){
+            return{
+                status: 200
+            }
+        }
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+module.exports = { userLogin, fetchProfile, UpdateProfile }

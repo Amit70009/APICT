@@ -10,7 +10,10 @@ var userSchema = new mongoose.Schema({
     role: {type:String, default:"student"},
     acc_token: {type: String},
     isUserActive: { type: Boolean },
-    createdOn: {type: Date, default: new Date()}
+    gender: {type: String, required: true},
+    createdOn: {type: Date, default: new Date()},
+    course: {type: String},
+    address: {type: String}
 });
 var usermodel = mongoose.model("users", userSchema);
 

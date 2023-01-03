@@ -16,6 +16,9 @@ var dbconn = require("./db/dbconnect");
 var RegisterUserRouter = require("./Register/Routes");
 var RegisterRolesRouter = require("./Register/Routes");
 var LoginUserRouter = require("./Login/Routes")
+var fetchUserRouter = require('./GetProfile/Routes');
+const UpdateProfile = require('./UpdateUser/Routes');
+
 app.use(express.json());
 app.use("/public", express.static(path.join(__dirname, "public")));
 dbconn.databaseConn();
@@ -27,6 +30,8 @@ app.get("/", (request, response) => {
 app.use("/api/users", RegisterUserRouter);
 app.use("/api/users", RegisterRolesRouter);
 app.use("/api/users", LoginUserRouter);
+app.use("/api/users", fetchUserRouter);
+app.use("/api/users", UpdateProfile);
 
 app.listen(Constant.portNo, async (error, conn) => {
     if(error){
